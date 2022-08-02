@@ -12,6 +12,12 @@ body{
     max-width: 1200px;
     width: 100%;
 }
+a{
+    text-decoration: none;
+}
+h2{
+    color: black;
+}
 nav{
     background: white;
     .nav__content{
@@ -52,4 +58,65 @@ nav{
         }
     }
 }
-
+.contacts{
+    background: #FBFBFB;
+    border-radius: 15px;
+    padding: 24px;
+    margin: 0 auto;
+    margin-top: 26px;
+    select{
+        background: #FFFFFF;
+        box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        padding: 6px 10px;
+    }
+    .contact__categories{
+        background: #B3DFFF;
+        box-shadow: inset -1px -1px 20px rgba(254, 134, 39, 0.1), inset 1px 1px 20px rgba(254, 134, 39, 0.1);
+        border-radius: 10px;
+        max-width: 1200px;
+        width: 100%;
+        padding: 12px;
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        p{
+            max-width: 200px;
+            width: 100%;
+            font-weight: bold;
+            text-align: flex-start;
+            text-transform: uppercase;
+            font-size: 14px;
+            margin: 0 5px;
+        }
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .container{
+        padding: 10px !important;
+    }
+    .nav__content{
+        padding: 16px !important;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .contact__cards_component{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .contact__categories{
+        display: none !important;
+    }
+}
+@media only screen and (max-width: 670px) {
+    .contact__cards_component{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav__title{
+        display: none;
+    }
+}
