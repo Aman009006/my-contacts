@@ -19,11 +19,9 @@ function Main(){
           axios(options)
             .then(response => {
               localStorage.setItem('contacts', JSON.stringify(response.data));
+              setContacts(JSON.parse(localStorage.getItem('contacts')))
             });
     },[])
-    useEffect(()=>{
-        setContacts(JSON.parse(localStorage.getItem('contacts')))
-      },[])
 
     const searchContact = contacts?.filter(contact =>{
         return contact.name.toLowerCase().includes(searchName.toLowerCase())
