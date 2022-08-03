@@ -25,12 +25,12 @@ function ContactCard({contact}){
     
     function getEditContact(){
         const newContctList = contacts.map(o => {
-            contact.name = editName
-            contact.username = editUsername
-            contact.email = editEmail
-            contact.address.street = editStreet
-            contact.address.city = editCity
-            contact.address.zipcode = editZipcode
+            contact.name = (editName ? editName : contact.name)
+            contact.username =  (editUsername ? editUsername : contact.username)
+            contact.email =  (editEmail ? editEmail : contact.email)
+            contact.address.street =  (editStreet ? editStreet : contact.address.street)
+            contact.address.city =  (editCity ? editCity : contact.address.city)
+            contact.address.zipcode =  (editZipcode ? editZipcode : contact.address.zipcode)
 
             if(o.id === contact.id){
                 return contact
