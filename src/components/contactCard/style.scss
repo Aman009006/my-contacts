@@ -6,6 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    cursor: pointer;
     .contact__card{
         max-width: 200px;
         width: 100%;
@@ -51,6 +52,7 @@
     padding: 12px;
     border-radius: 15px;
     margin: 6px;
+    cursor: pointer;
     }
     .contact__cards{
         display: none;
@@ -73,4 +75,36 @@
         width: 100%;
         text-align: flex-end;
     }
+}
+.edit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    .edit__inputs{
+        height: 240px;
+        input{
+            max-width: 400px;
+            width: 100%;
+            margin-bottom: 4px;
+            padding: 6px;
+            border-radius: 6px;
+            border: 2px solid #B3DFFF;
+        }
+    }
+    .edit__descr{
+        margin-bottom: 4px;
+    }
+    p{
+        font-weight: bold;
+    }
+}
+.modal-body{
+    height: 450px;
+}
+.modal__btn{
+    padding:6px 12px;
+    border-radius: 15px;
+    background: none;
+    border: 2px solid #B3DFFF;
 }

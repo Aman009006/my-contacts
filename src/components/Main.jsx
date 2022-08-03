@@ -7,6 +7,8 @@ function Main(){
 
     const [contacts,setContacts]=useState([])
     const [searchName,setSearchName]=useState('')
+    const [sortName,setSortName]=useState(true)
+
 
     useEffect(()=>{
         const options = {
@@ -17,11 +19,13 @@ function Main(){
           axios(options)
             .then(response => {
               localStorage.setItem('contacts', JSON.stringify(response.data));
-              setContacts(JSON.parse(localStorage.getItem('contacts')))
             });
     },[])
+    useEffect(()=>{
+        setContacts(JSON.parse(localStorage.getItem('contacts')))
+      },[])
 
-    const searchContact = contacts.filter(contact =>{
+    const searchContact = contacts?.filter(contact =>{
         return contact.name.toLowerCase().includes(searchName.toLowerCase())
     })
 
@@ -33,16 +37,17 @@ function Main(){
         return 0;
     }
 
+    let sortContactClone = searchContact?.slice(0)
+    const sortContactArr = sortContactClone?.sort(SortArrayName)
+
     function sortContact(e){
         if(e === 'all'){
-            console.log('all');
+            setSortName(true)
         }else if( e === 'a-z'){
-            console.log('a-z');
-            console.log(searchContact.sort(SortArrayName));
+            setSortName(false)
         }
     }
     
-
     return (
         <>
         <nav>
@@ -70,7 +75,7 @@ function Main(){
             </div>
 
            <div className="contact__cards_component">
-           {searchContact.map((contact)=>{
+           {(sortName ? searchContact : sortContactArr)?.map((contact)=>{
                 return(
                     <ContactCard key={contact.id} contact={ contact }/>
                 )
